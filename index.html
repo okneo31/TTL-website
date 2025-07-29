@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTL | That's The Life</title>
+    <link rel="icon" href="https://iili.io/FSJcwyF.md.png" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 폰트 및 스크롤 동작 설정 */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1f2937;
+        }
+        /* 커스텀 색상 */
+        .ttl-red { color: #e53935; }
+        .bg-ttl-red { background-color: #e53935; }
+        .border-ttl-red { border-color: #e53935; }
+        .hover\:bg-ttl-red-dark:hover { background-color: #c62828; }
+
+        /* 헤더 그림자 */
+        .header-shadow {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+        }
+
+        /* 스크롤 애니메이션 */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* 활성 언어 버튼 스타일 */
+        .lang-btn.active {
+            color: #e53935;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- 헤더 -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 header-shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center text-2xl font-extrabold text-gray-800">
+                <img src="https://iili.io/FSJcwyF.md.png" alt="TTL Logo" class="h-8 w-8 mr-2 rounded-full">
+                <span>TTL</span>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-gray-600">
+                <a href="#services" class="hover:text-ttl-red transition-colors" data-lang-key="navServices">Services</a>
+                <a href="#methodology" class="hover:text-ttl-red transition-colors" data-lang-key="navMethodology">Methodology</a>
+                <a href="#cases" class="hover:text-ttl-red transition-colors" data-lang-key="navCases">Cases</a>
+                <a href="#about" class="hover:text-ttl-red transition-colors" data-lang-key="navAbout">About Us</a>
+                <a href="#contact" class="hover:text-ttl-red transition-colors" data-lang-key="navContact">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                 <div class="hidden sm:flex items-center space-x-2 text-xs font-bold text-gray-500">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <span>/</span>
+                    <button class="lang-btn" data-lang="ko">KO</button>
+                    <span>/</span>
+                    <button class="lang-btn" data-lang="zh">CN</button>
+                </div>
+                 <a href="#contact" class="hidden sm:inline-block bg-ttl-red text-white text-sm font-bold py-2 px-5 rounded-md hover:bg-ttl-red-dark transition-colors" data-lang-key="getInTouch">GET IN TOUCH</a>
+                 <button id="mobile-menu-button" class="lg:hidden ml-4 text-gray-800">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                 </button>
+            </div>
+        </div>
+        <!-- 모바일 메뉴 -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-200">
+            <a href="#services" class="block py-3 px-6 text-gray-600 hover:bg-gray-50" data-lang-key="navServicesMobile">Services</a>
+            <a href="#methodology" class="block py-3 px-6 text-gray-600 hover:bg-gray-50" data-lang-key="navMethodologyMobile">Methodology</a>
+            <a href="#cases" class="block py-3 px-6 text-gray-600 hover:bg-gray-50" data-lang-key="navCasesMobile">Cases</a>
+            <a href="#about" class="block py-3 px-6 text-gray-600 hover:bg-gray-50" data-lang-key="navAboutMobile">About Us</a>
+            <a href="#contact" class="block py-3 px-6 text-gray-600 hover:bg-gray-50" data-lang-key="navContactMobile">Contact</a>
+             <div class="flex justify-center items-center space-x-4 py-3 border-t">
+                <button class="lang-btn text-sm" data-lang="en">English</button>
+                <button class="lang-btn text-sm" data-lang="ko">한국어</button>
+                <button class="lang-btn text-sm" data-lang="zh">中文</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 히어로 섹션 -->
+        <section class="pt-32 pb-20 lg:pt-48 lg:pb-32">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center">
+                    <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
+                        <h1 class="text-4xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4" data-lang-key="heroTitle">Bring blockchain to your business</h1>
+                        <p class="text-lg text-gray-600 mb-8" data-lang-key="heroSubtitle">and build the future of Web 3.0 with TTL.</p>
+                        <a href="#contact" class="bg-ttl-red text-white font-bold py-4 px-8 rounded-lg hover:bg-ttl-red-dark transition-colors" data-lang-key="getAQuote">GET A QUOTE</a>
+                    </div>
+                    <div class="lg:w-1/2 flex justify-center">
+                        <img src="https://iili.io/FSJK75P.md.png" 
+                             alt="TTL 3D 로고" 
+                             class="w-full max-w-md rounded-lg"
+                             onerror="this.onerror=null;this.src='https://placehold.co/500x400/ffffff/e53935?text=Logo+Not+Available';">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 서비스 섹션 -->
+        <section id="services" class="py-20 lg:py-28 bg-ttl-red text-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl lg:text-4xl font-extrabold" data-lang-key="servicesTitle">Our Services</h2>
+                    <p class="mt-4 text-lg text-red-100" data-lang-key="servicesSubtitle">We provide comprehensive blockchain development solutions.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 서비스 아이템 -->
+                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="service1Title">Crypto Exchange</h3>
+                        <p class="text-gray-600" data-lang-key="service1Desc">Secure and scalable cryptocurrency exchange platforms with advanced features.</p>
+                    </div>
+                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="service2Title">Smart Contract</h3>
+                        <p class="text-gray-600" data-lang-key="service2Desc">Audited and optimized smart contracts for any blockchain, ensuring security.</p>
+                    </div>
+                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="service3Title">DApp Development</h3>
+                        <p class="text-gray-600" data-lang-key="service3Desc">Designing and deploying decentralized applications for the new web.</p>
+                    </div>
+                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="service4Title">IT Security audit</h3>
+                        <p class="text-gray-600" data-lang-key="service4Desc">In-depth security analysis and vulnerability assessment for your projects.</p>
+                    </div>
+                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="service5Title">NFT Development</h3>
+                        <p class="text-gray-600" data-lang-key="service5Desc">Creating unique NFT marketplaces, collectibles, and generative art.</p>
+                    </div>
+                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="service6Title">Custom Blockchain</h3>
+                        <p class="text-gray-600" data-lang-key="service6Desc">Building custom blockchain solutions tailored to your specific business needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 방법론 섹션 -->
+        <section id="methodology" class="py-20 lg:py-28">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl lg:text-4xl font-extrabold text-gray-900" data-lang-key="methodologyTitle">The Agile Method Defined</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto" data-lang-key="methodologyDesc">The Agile method is an iterative approach to project management and software development that helps teams deliver value to their customers faster and with fewer headaches. Instead of betting everything on a "big bang" launch, an agile team delivers work in small, but consumable, increments.</p>
+                </div>
+                <div class="relative flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 reveal">
+                    <div class="flex items-center flex-col text-center w-24"><div class="w-16 h-16 bg-ttl-red text-white flex items-center justify-center rounded-full text-xl font-bold">1</div><p class="mt-2 font-semibold" data-lang-key="stepPlan">PLAN</p></div>
+                    <div class="hidden md:block flex-grow border-t-2 border-dashed border-gray-300 mx-2"></div>
+                    <div class="flex items-center flex-col text-center w-24"><div class="w-16 h-16 bg-gray-800 text-white flex items-center justify-center rounded-full text-xl font-bold">2</div><p class="mt-2 font-semibold" data-lang-key="stepDesign">DESIGN</p></div>
+                    <div class="hidden md:block flex-grow border-t-2 border-dashed border-gray-300 mx-2"></div>
+                    <div class="flex items-center flex-col text-center w-24"><div class="w-16 h-16 bg-gray-800 text-white flex items-center justify-center rounded-full text-xl font-bold">3</div><p class="mt-2 font-semibold" data-lang-key="stepBuild">BUILD</p></div>
+                    <div class="hidden md:block flex-grow border-t-2 border-dashed border-gray-300 mx-2"></div>
+                    <div class="flex items-center flex-col text-center w-24"><div class="w-16 h-16 bg-gray-800 text-white flex items-center justify-center rounded-full text-xl font-bold">4</div><p class="mt-2 font-semibold" data-lang-key="stepBeta">BETA TEST</p></div>
+                    <div class="hidden md:block flex-grow border-t-2 border-dashed border-gray-300 mx-2"></div>
+                    <div class="flex items-center flex-col text-center w-24"><div class="w-16 h-16 bg-gray-800 text-white flex items-center justify-center rounded-full text-xl font-bold">5</div><p class="mt-2 font-semibold" data-lang-key="stepLaunch">LAUNCH</p></div>
+                    <div class="hidden md:block flex-grow border-t-2 border-dashed border-gray-300 mx-2"></div>
+                    <div class="flex items-center flex-col text-center w-24"><div class="w-16 h-16 bg-gray-800 text-white flex items-center justify-center rounded-full text-xl font-bold">6</div><p class="mt-2 font-semibold" data-lang-key="stepSupport">SUPPORT</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 케이스 스터디 섹션 -->
+        <section id="cases" class="py-20 lg:py-28 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl lg:text-4xl font-extrabold text-gray-900" data-lang-key="casesTitle">Cases</h2>
+                    <p class="mt-4 text-lg text-gray-600" data-lang-key="casesSubtitle">Check out some of our successful projects.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <!-- 케이스 아이템 1 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
+                        <img src="https://placehold.co/600x400/334155/ffffff?text=NFT+Collection" alt="NFT Collection 프로젝트" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="case1Title">Convicted Squirrels NFT collection</h3>
+                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case1Desc">A generative NFT collection with unique traits and community features.</p>
+                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore1">SEE MORE</a>
+                        </div>
+                    </div>
+                    <!-- 케이스 아이템 2 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
+                        <img src="https://placehold.co/600x400/047857/ffffff?text=Crypto+Wallet" alt="Crypto Wallet 프로젝트" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="case2Title">Non-custodial crypto wallet</h3>
+                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case2Desc">A secure, user-friendly mobile wallet for managing various crypto assets.</p>
+                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore2">SEE MORE</a>
+                        </div>
+                    </div>
+                    <!-- 케이스 아이템 3 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
+                        <img src="https://placehold.co/600x400/7c3aed/ffffff?text=DeFi+Staking" alt="DeFi Staking Platform" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="case3Title">DeFi Staking Platform</h3>
+                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case3Desc">A decentralized platform for users to stake their crypto assets and earn rewards with high APY.</p>
+                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore3">SEE MORE</a>
+                        </div>
+                    </div>
+                    <!-- 케이스 아이템 4 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
+                        <img src="https://placehold.co/600x400/c2410c/ffffff?text=Supply+Chain" alt="Supply Chain Solution" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="case4Title">Blockchain-based Supply Chain</h3>
+                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case4Desc">A solution to track goods from origin to destination with immutable transparency.</p>
+                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore4">SEE MORE</a>
+                        </div>
+                    </div>
+                    <!-- 케이스 아이템 5 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
+                        <img src="https://placehold.co/600x400/be185d/ffffff?text=Real+Estate" alt="Real Estate Tokenization" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="case5Title">Real Estate Tokenization</h3>
+                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case5Desc">A platform to tokenize real estate assets for fractional ownership and investment.</p>
+                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore5">SEE MORE</a>
+                        </div>
+                    </div>
+                    <!-- 케이스 아이템 6 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
+                        <img src="https://placehold.co/600x400/1d4ed8/ffffff?text=DAO+Platform" alt="DAO Platform" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="case6Title">DAO Governance Platform</h3>
+                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case6Desc">A decentralized autonomous organization platform for community-driven project governance.</p>
+                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore6">SEE MORE</a>
+                        </div>
+                    </div>
+                     <!-- 케이스 아이템 7 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
+                        <img src="https://placehold.co/600x400/0f766e/ffffff?text=Crypto+Gaming" alt="Crypto Gaming Marketplace" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="case7Title">Crypto Gaming Marketplace</h3>
+                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case7Desc">An in-game asset marketplace using NFTs for true ownership and trading.</p>
+                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore7">SEE MORE</a>
+                        </div>
+                    </div>
+                     <!-- 케이스 아이템 8 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
+                        <img src="https://placehold.co/600x400/9a3412/ffffff?text=Voting+System" alt="Secure Voting System" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="case8Title">Secure Voting System</h3>
+                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case8Desc">A blockchain-based voting system to ensure integrity and anonymity in elections.</p>
+                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore8">SEE MORE</a>
+                        </div>
+                    </div>
+                     <!-- 케이스 아이템 9 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
+                        <img src="https://placehold.co/600x400/166534/ffffff?text=Carbon+Credit" alt="Carbon Credit Marketplace" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="case9Title">Carbon Credit Marketplace</h3>
+                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case9Desc">A transparent platform for trading tokenized carbon credits to promote green initiatives.</p>
+                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore9">SEE MORE</a>
+                        </div>
+                    </div>
+                     <!-- 케이스 아이템 10 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
+                        <img src="https://placehold.co/600x400/312e81/ffffff?text=Digital+ID" alt="Digital Identity Solution" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="case10Title">Digital Identity Solution</h3>
+                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case10Desc">A self-sovereign identity platform using blockchain for secure and private data control.</p>
+                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore10">SEE MORE</a>
+                        </div>
+                    </div>
+                    <!-- 케이스 아이템 11 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
+                        <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=Music+Streaming" alt="Decentralized Music Streaming" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="case11Title">Decentralized Music Streaming</h3>
+                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case11Desc">A platform that allows artists to publish their music directly and get fair royalties using smart contracts.</p>
+                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore11">SEE MORE</a>
+                        </div>
+                    </div>
+                    <!-- 케이스 아이템 12 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
+                        <img src="https://placehold.co/600x400/ec4899/ffffff?text=Healthcare+Data" alt="Healthcare Data Management" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="case12Title">Healthcare Data Management</h3>
+                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case12Desc">A secure system for patients to control and share their medical records with providers using blockchain.</p>
+                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore12">SEE MORE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us 섹션 -->
+        <section id="about" class="py-20 lg:py-28">
+             <div class="container mx-auto px-6">
+                 <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    <div class="lg:w-1/2 reveal">
+                        <h2 class="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-6" data-lang-key="aboutTitle">5+ years in the market with 89% customer retention rate.</h2>
+                        <h4 class="text-xl font-bold text-gray-800 mt-8 mb-2" data-lang-key="visionTitle">Our Vision</h4>
+                        <p class="text-gray-600 mb-4" data-lang-key="visionDesc">Our fundamental goal is to bring the best user experience to our clients through innovation.</p>
+                        <h4 class="text-xl font-bold text-gray-800 mt-6 mb-2" data-lang-key="missionTitle">Our Mission</h4>
+                        <p class="text-gray-600" data-lang-key="missionDesc">We believe that novel high-encrypted technologies can be used on the slow commercial market.</p>
+                    </div>
+                    <div class="lg:w-1/2 flex justify-center reveal">
+                        <img src="https://placehold.co/500x500/cccccc/333?text=Team+Photo" alt="회사 팀 사진" class="rounded-full w-80 h-80 lg:w-96 lg:h-96 object-cover shadow-2xl">
+                    </div>
+                 </div>
+             </div>
+        </section>
+
+        <!-- 연락처 섹션 -->
+        <section id="contact" class="py-20 lg:py-28 bg-gray-800 text-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center reveal">
+                    <h2 class="text-3xl lg:text-4xl font-extrabold" data-lang-key="contactTitle">Reach out today</h2>
+                    <p class="mt-4 text-lg text-gray-300" data-lang-key="contactSubtitle">Have questions? We're here to help.</p>
+                </div>
+                <div class="max-w-xl mx-auto mt-12 reveal">
+                    <form action="#" method="POST" class="space-y-6">
+                        <input type="text" name="name" placeholder="Name" class="w-full p-4 rounded-md bg-gray-700 border-gray-600 focus:ring-ttl-red focus:border-ttl-red text-white" data-lang-key-placeholder="formName">
+                        <input type="email" name="email" placeholder="Email" class="w-full p-4 rounded-md bg-gray-700 border-gray-600 focus:ring-ttl-red focus:border-ttl-red text-white" data-lang-key-placeholder="formEmail">
+                        <textarea name="message" rows="4" placeholder="Message" class="w-full p-4 rounded-md bg-gray-700 border-gray-600 focus:ring-ttl-red focus:border-ttl-red text-white" data-lang-key-placeholder="formMessage"></textarea>
+                        <button type="submit" class="w-full bg-ttl-red text-white font-bold py-4 px-8 rounded-lg hover:bg-ttl-red-dark transition-colors" data-lang-key="formSubmit">SUBMIT</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-900 text-gray-400">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; <span id="year">2022</span> TTL | That's The Life. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // 다국어 데이터
+            const languageData = {
+                en: {
+                    navServices: "Services", navMethodology: "Methodology", navCases: "Cases", navAbout: "About Us", navContact: "Contact", getInTouch: "GET IN TOUCH",
+                    navServicesMobile: "Services", navMethodologyMobile: "Methodology", navCasesMobile: "Cases", navAboutMobile: "About Us", navContactMobile: "Contact",
+                    heroTitle: "Bring blockchain to your business", heroSubtitle: "and build the future of Web 3.0 with TTL.", getAQuote: "GET A QUOTE",
+                    servicesTitle: "Our Services", servicesSubtitle: "We provide comprehensive blockchain development solutions.",
+                    service1Title: "Crypto Exchange", service1Desc: "Secure and scalable cryptocurrency exchange platforms with advanced features.",
+                    service2Title: "Smart Contract", service2Desc: "Audited and optimized smart contracts for any blockchain, ensuring security.",
+                    service3Title: "DApp Development", service3Desc: "Designing and deploying decentralized applications for the new web.",
+                    service4Title: "IT Security audit", service4Desc: "In-depth security analysis and vulnerability assessment for your projects.",
+                    service5Title: "NFT Development", service5Desc: "Creating unique NFT marketplaces, collectibles, and generative art.",
+                    service6Title: "Custom Blockchain", service6Desc: "Building custom blockchain solutions tailored to your specific business needs.",
+                    methodologyTitle: "The Agile Method Defined", methodologyDesc: "The Agile method is an iterative approach to project management and software development that helps teams deliver value to their customers faster and with fewer headaches. Instead of betting everything on a 'big bang' launch, an agile team delivers work in small, but consumable, increments.",
+                    stepPlan: "PLAN", stepDesign: "DESIGN", stepBuild: "BUILD", stepBeta: "BETA TEST", stepLaunch: "LAUNCH", stepSupport: "SUPPORT",
+                    casesTitle: "Cases", casesSubtitle: "Check out some of our successful projects.",
+                    case1Title: "Convicted Squirrels NFT collection", case1Desc: "A generative NFT collection with unique traits and community features.",
+                    case2Title: "Non-custodial crypto wallet", case2Desc: "A secure, user-friendly mobile wallet for managing various crypto assets.",
+                    case3Title: "DeFi Staking Platform", case3Desc: "A decentralized platform for users to stake their crypto assets and earn rewards with high APY.",
+                    case4Title: "Blockchain-based Supply Chain", case4Desc: "A solution to track goods from origin to destination with immutable transparency.",
+                    case5Title: "Real Estate Tokenization", case5Desc: "A platform to tokenize real estate assets for fractional ownership and investment.",
+                    case6Title: "DAO Governance Platform", case6Desc: "A decentralized autonomous organization platform for community-driven project governance.",
+                    case7Title: "Crypto Gaming Marketplace", case7Desc: "An in-game asset marketplace using NFTs for true ownership and trading.",
+                    case8Title: "Secure Voting System", case8Desc: "A blockchain-based voting system to ensure integrity and anonymity in elections.",
+                    case9Title: "Carbon Credit Marketplace", case9Desc: "A transparent platform for trading tokenized carbon credits to promote green initiatives.",
+                    case10Title: "Digital Identity Solution", case10Desc: "A self-sovereign identity platform using blockchain for secure and private data control.",
+                    case11Title: "Decentralized Music Streaming", case11Desc: "A platform that allows artists to publish their music directly and get fair royalties using smart contracts.",
+                    case12Title: "Healthcare Data Management", case12Desc: "A secure system for patients to control and share their medical records with providers using blockchain.",
+                    seeMore1: "SEE MORE", seeMore2: "SEE MORE", seeMore3: "SEE MORE", seeMore4: "SEE MORE", seeMore5: "SEE MORE", seeMore6: "SEE MORE", seeMore7: "SEE MORE", seeMore8: "SEE MORE", seeMore9: "SEE MORE", seeMore10: "SEE MORE", seeMore11: "SEE MORE", seeMore12: "SEE MORE",
+                    aboutTitle: "5+ years in the market with 89% customer retention rate.",
+                    visionTitle: "Our Vision", visionDesc: "Our fundamental goal is to bring the best user experience to our clients through innovation.",
+                    missionTitle: "Our Mission", missionDesc: "We believe that novel high-encrypted technologies can be used on the slow commercial market.",
+                    contactTitle: "Reach out today", contactSubtitle: "Have questions? We're here to help.",
+                    formName: "Name", formEmail: "Email", formMessage: "Message", formSubmit: "SUBMIT"
+                },
+                ko: {
+                    navServices: "서비스", navMethodology: "방법론", navCases: "사례", navAbout: "회사 소개", navContact: "연락처", getInTouch: "연락하기",
+                    navServicesMobile: "서비스", navMethodologyMobile: "방법론", navCasesMobile: "사례", navAboutMobile: "회사 소개", navContactMobile: "연락처",
+                    heroTitle: "당신의 비즈니스에 블록체인을 도입하세요", heroSubtitle: "TTL과 함께 웹 3.0의 미래를 만드세요.", getAQuote: "견적 받기",
+                    servicesTitle: "우리의 서비스", servicesSubtitle: "우리는 포괄적인 블록체인 개발 솔루션을 제공합니다.",
+                    service1Title: "암호화폐 거래소", service1Desc: "고급 기능을 갖춘 안전하고 확장 가능한 암호화폐 거래소 플랫폼입니다.",
+                    service2Title: "스마트 계약", service2Desc: "보안을 보장하는 모든 블록체인에 대해 감사 및 최적화된 스마트 계약입니다.",
+                    service3Title: "디앱(DApp) 개발", service3Desc: "새로운 웹을 위한 탈중앙화 애플리케이션을 설계하고 배포합니다.",
+                    service4Title: "IT 보안 감사", service4Desc: "프로젝트에 대한 심층적인 보안 분석 및 취약점 평가입니다.",
+                    service5Title: "NFT 개발", service5Desc: "독특한 NFT 마켓플레이스, 수집품 및 생성 예술을 만듭니다.",
+                    service6Title: "커스텀 블록체인", service6Desc: "특정 비즈니스 요구에 맞는 맞춤형 블록체인 솔루션을 구축합니다.",
+                    methodologyTitle: "애자일 방법론 정의", methodologyDesc: "애자일 방법론은 팀이 고객에게 더 빠르고 수월하게 가치를 제공하도록 돕는 반복적인 프로젝트 관리 및 소프트웨어 개발 접근 방식입니다. '빅뱅' 출시에 모든 것을 거는 대신, 애자일 팀은 작지만 소비 가능한 증분으로 작업을 제공합니다.",
+                    stepPlan: "계획", stepDesign: "설계", stepBuild: "개발", stepBeta: "베타 테스트", stepLaunch: "출시", stepSupport: "지원",
+                    casesTitle: "사례", casesSubtitle: "우리의 성공적인 프로젝트 중 일부를 확인하세요.",
+                    case1Title: "유죄 다람쥐 NFT 컬렉션", case1Desc: "독특한 특성과 커뮤니티 기능을 갖춘 생성형 NFT 컬렉션입니다.",
+                    case2Title: "비수탁형 암호화폐 지갑", case2Desc: "다양한 암호화 자산을 관리하기 위한 안전하고 사용자 친화적인 모바일 지갑입니다.",
+                    case3Title: "DeFi 스테이킹 플랫폼", case3Desc: "사용자가 암호화 자산을 스테이킹하고 높은 APY로 보상을 받을 수 있는 탈중앙화 플랫폼입니다.",
+                    case4Title: "블록체인 기반 공급망", case4Desc: "불변의 투명성으로 원산지에서 목적지까지 상품을 추적하는 솔루션입니다.",
+                    case5Title: "부동산 토큰화", case5Desc: "부분 소유 및 투자를 위해 부동산 자산을 토큰화하는 플랫폼입니다.",
+                    case6Title: "DAO 거버넌스 플랫폼", case6Desc: "커뮤니티 중심의 프로젝트 거버넌스를 위한 탈중앙화 자율 조직 플랫폼입니다.",
+                    case7Title: "암호화폐 게임 마켓플레이스", case7Desc: "진정한 소유권과 거래를 위해 NFT를 사용하는 게임 내 자산 마켓플레이스입니다.",
+                    case8Title: "보안 투표 시스템", case8Desc: "선거의 무결성과 익명성을 보장하는 블록체인 기반 투표 시스템입니다.",
+                    case9Title: "탄소 배출권 마켓플레이스", case9Desc: "녹색 이니셔티브를 촉진하기 위해 토큰화된 탄소 배출권을 거래하는 투명한 플랫폼입니다.",
+                    case10Title: "디지털 신원 솔루션", case10Desc: "안전하고 사적인 데이터 제어를 위해 블록체인을 사용하는 자기 주권 신원 플랫폼입니다.",
+                    case11Title: "탈중앙화 음악 스트리밍", case11Desc: "아티스트가 직접 음악을 게시하고 스마트 계약을 사용하여 공정한 로열티를 받을 수 있는 플랫폼입니다.",
+                    case12Title: "헬스케어 데이터 관리", case12Desc: "환자가 블록체인을 사용하여 의료 기록을 제어하고 공급자와 공유할 수 있는 보안 시스템입니다.",
+                    seeMore1: "더 보기", seeMore2: "더 보기", seeMore3: "더 보기", seeMore4: "더 보기", seeMore5: "더 보기", seeMore6: "더 보기", seeMore7: "더 보기", seeMore8: "더 보기", seeMore9: "더 보기", seeMore10: "더 보기", seeMore11: "더 보기", seeMore12: "더 보기",
+                    aboutTitle: "89%의 고객 유지율로 5년 이상 시장에 있었습니다.",
+                    visionTitle: "우리의 비전", visionDesc: "우리의 근본적인 목표는 혁신을 통해 고객에게 최고의 사용자 경험을 제공하는 것입니다.",
+                    missionTitle: "우리의 미션", missionDesc: "우리는 새로운 고암호화 기술이 느린 상업 시장에서 사용될 수 있다고 믿습니다.",
+                    contactTitle: "지금 바로 연락하세요", contactSubtitle: "질문이 있으신가요? 저희가 도와드리겠습니다.",
+                    formName: "이름", formEmail: "이메일", formMessage: "메시지", formSubmit: "제출"
+                },
+                zh: {
+                    navServices: "服务", navMethodology: "方法论", navCases: "案例", navAbout: "关于我们", navContact: "联系我们", getInTouch: "联系我们",
+                    navServicesMobile: "服务", navMethodologyMobile: "方法论", navCasesMobile: "案例", navAboutMobile: "关于我们", navContactMobile: "联系我们",
+                    heroTitle: "将区块链带入您的业务", heroSubtitle: "与TTL一起构建Web 3.0的未来。", getAQuote: "获取报价",
+                    servicesTitle: "我们的服务", servicesSubtitle: "我们提供全面的区块链开发解决方案。",
+                    service1Title: "加密货币交易所", service1Desc: "具有先进功能的安全且可扩展的加密货币交易平台。",
+                    service2Title: "智能合约", service2Desc: "为任何区块链审计和优化的智能合约，确保安全性。",
+                    service3Title: "DApp开发", service3Desc: "为新网络设计和部署去中心化应用程序。",
+                    service4Title: "IT安全审计", service4Desc: "对您的项目进行深入的安全分析和漏洞评估。",
+                    service5Title: "NFT开发", service5Desc: "创建独特的NFT市场、收藏品和生成艺术。",
+                    service6Title: "定制区块链", service6Desc: "构建适合您特定业务需求的定制区块链解决方案。",
+                    methodologyTitle: "敏捷方法定义", methodologyDesc: "敏捷方法是一种迭代的项目管理和软件开发方法，可帮助团队更快、更轻松地为客户提供价值。敏捷团队不是将所有赌注都押在“大爆炸”式的发布上，而是以小而可用的增量交付工作。",
+                    stepPlan: "计划", stepDesign: "设计", stepBuild: "建造", stepBeta: "BETA 测试", stepLaunch: "发布", stepSupport: "支持",
+                    casesTitle: "案例", casesSubtitle: "查看我们一些成功的项目。",
+                    case1Title: "被定罪的松鼠NFT系列", case1Desc: "具有独特性状和社区功能的生成式NFT系列。",
+                    case2Title: "非托管加密钱包", case2Desc: "一个安全、用户友好的移动钱包，用于管理各种加密资产。",
+                    case3Title: "DeFi 质押平台", case3Desc: "一个去中心化平台，供用户质押其加密资产并获得高年利率奖励。",
+                    case4Title: "基于区块链的供应链", case4Desc: "一种以不可变透明度跟踪从原产地到目的地的货物的解决方案。",
+                    case5Title: "房地产代币化", case5Desc: "一个将房地产资产代币化以实现部分所有权和投资的平台。",
+                    case6Title: "DAO 治理平台", case6Desc: "一个用于社区驱动项目治理的去中心化自治组织平台。",
+                    case7Title: "加密游戏市场", case7Desc: "一个使用 NFT 实现真正所有权和交易的游戏内资产市场。",
+                    case8Title: "安全投票系统", case8Desc: "一个基于区块链的投票系统，以确保选举的完整性和匿名性。",
+                    case9Title: "碳信用市场", case9Desc: "一个用于交易代币化碳信用额度的透明平台，以促进绿色倡议。",
+                    case10Title: "数字身份解决方案", case10Desc: "一个使用区块链进行安全和私密数据控制的自主身份平台。",
+                    case11Title: "去中心化音乐流媒体", case11Desc: "一个允许艺术家直接发布音乐并使用智能合约获得公平版税的平台。",
+                    case12Title: "医疗数据管理", case12Desc: "一个安全的系统，供患者使用区块链控制并与提供者共享其医疗记录。",
+                    seeMore1: "查看更多", seeMore2: "查看更多", seeMore3: "查看更多", seeMore4: "查看更多", seeMore5: "查看更多", seeMore6: "查看更多", seeMore7: "查看更多", seeMore8: "查看更多", seeMore9: "查看更多", seeMore10: "查看更多", seeMore11: "查看更多", seeMore12: "查看更多",
+                    aboutTitle: "在市场上超过5年，客户保留率为89％。",
+                    visionTitle: "我们的愿景", visionDesc: "我们的根本目标是通过创新为客户带来最佳的用户体验。",
+                    missionTitle: "我们的使命", missionDesc: "我们相信，新颖的高度加密技术可以用于缓慢的商业市场。",
+                    contactTitle: "今天就联系我们", contactSubtitle: "有问题吗？我们在这里提供帮助。",
+                    formName: "姓名", formEmail: "电子邮件", formMessage: "信息", formSubmit: "提交"
+                }
+            };
+
+            const langButtons = document.querySelectorAll('.lang-btn');
+            
+            function changeLanguage(lang) {
+                // 모든 텍스트 요소 업데이트
+                document.querySelectorAll('[data-lang-key]').forEach(el => {
+                    const key = el.getAttribute('data-lang-key');
+                    if (languageData[lang] && languageData[lang][key]) {
+                        el.textContent = languageData[lang][key];
+                    }
+                });
+
+                // 모든 placeholder 요소 업데이트
+                 document.querySelectorAll('[data-lang-key-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-lang-key-placeholder');
+                    if (languageData[lang] && languageData[lang][key]) {
+                        el.placeholder = languageData[lang][key];
+                    }
+                });
+
+                // 활성 버튼 스타일 업데이트
+                langButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+            }
+
+            langButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const selectedLang = e.target.dataset.lang;
+                    changeLanguage(selectedLang);
+});
+            });
+
+            // 초기 언어 설정 (영어)
+            changeLanguage('en');
+
+            // 모바일 메뉴 토글
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // 스크롤 애니메이션
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
