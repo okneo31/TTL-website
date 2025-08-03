@@ -10,41 +10,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* 기본 폰트 및 스크롤 동작 설정 */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #1f2937;
-        }
-        /* 커스텀 색상 */
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1f2937; }
         .ttl-red { color: #e53935; }
         .bg-ttl-red { background-color: #e53935; }
         .border-ttl-red { border-color: #e53935; }
         .hover\:bg-ttl-red-dark:hover { background-color: #c62828; }
-
-        /* 헤더 그림자 */
-        .header-shadow {
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-        }
-
-        /* 스크롤 애니메이션 */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* 활성 언어 버튼 스타일 */
-        .lang-btn.active {
-            color: #e53935;
-            font-weight: 800;
-        }
+        .header-shadow { box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .lang-btn.active { color: #e53935; font-weight: 800; }
+        #form-status { transition: opacity 0.5s ease-in-out; }
     </style>
 </head>
 <body class="bg-white">
@@ -120,31 +96,12 @@
                     <p class="mt-4 text-lg text-red-100" data-lang-key="servicesSubtitle">We provide comprehensive blockchain development solutions.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- 서비스 아이템 -->
-                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal">
-                        <h3 class="text-xl font-bold mb-2" data-lang-key="service1Title">Crypto Exchange</h3>
-                        <p class="text-gray-600" data-lang-key="service1Desc">Secure and scalable cryptocurrency exchange platforms with advanced features.</p>
-                    </div>
-                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal">
-                        <h3 class="text-xl font-bold mb-2" data-lang-key="service2Title">Smart Contract</h3>
-                        <p class="text-gray-600" data-lang-key="service2Desc">Audited and optimized smart contracts for any blockchain, ensuring security.</p>
-                    </div>
-                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal">
-                        <h3 class="text-xl font-bold mb-2" data-lang-key="service3Title">DApp Development</h3>
-                        <p class="text-gray-600" data-lang-key="service3Desc">Designing and deploying decentralized applications for the new web.</p>
-                    </div>
-                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal">
-                        <h3 class="text-xl font-bold mb-2" data-lang-key="service4Title">IT Security audit</h3>
-                        <p class="text-gray-600" data-lang-key="service4Desc">In-depth security analysis and vulnerability assessment for your projects.</p>
-                    </div>
-                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal">
-                        <h3 class="text-xl font-bold mb-2" data-lang-key="service5Title">NFT Development</h3>
-                        <p class="text-gray-600" data-lang-key="service5Desc">Creating unique NFT marketplaces, collectibles, and generative art.</p>
-                    </div>
-                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal">
-                        <h3 class="text-xl font-bold mb-2" data-lang-key="service6Title">Custom Blockchain</h3>
-                        <p class="text-gray-600" data-lang-key="service6Desc">Building custom blockchain solutions tailored to your specific business needs.</p>
-                    </div>
+                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal"><h3 class="text-xl font-bold mb-2" data-lang-key="service1Title">Crypto Exchange</h3><p class="text-gray-600" data-lang-key="service1Desc">Secure and scalable cryptocurrency exchange platforms with advanced features.</p></div>
+                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal"><h3 class="text-xl font-bold mb-2" data-lang-key="service2Title">Smart Contract</h3><p class="text-gray-600" data-lang-key="service2Desc">Audited and optimized smart contracts for any blockchain, ensuring security.</p></div>
+                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal"><h3 class="text-xl font-bold mb-2" data-lang-key="service3Title">DApp Development</h3><p class="text-gray-600" data-lang-key="service3Desc">Designing and deploying decentralized applications for the new web.</p></div>
+                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal"><h3 class="text-xl font-bold mb-2" data-lang-key="service4Title">IT Security audit</h3><p class="text-gray-600" data-lang-key="service4Desc">In-depth security analysis and vulnerability assessment for your projects.</p></div>
+                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal"><h3 class="text-xl font-bold mb-2" data-lang-key="service5Title">NFT Development</h3><p class="text-gray-600" data-lang-key="service5Desc">Creating unique NFT marketplaces, collectibles, and generative art.</p></div>
+                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 reveal"><h3 class="text-xl font-bold mb-2" data-lang-key="service6Title">Custom Blockchain</h3><p class="text-gray-600" data-lang-key="service6Desc">Building custom blockchain solutions tailored to your specific business needs.</p></div>
                 </div>
             </div>
         </section>
@@ -180,114 +137,18 @@
                     <p class="mt-4 text-lg text-gray-600" data-lang-key="casesSubtitle">Check out some of our successful projects.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    <!-- 케이스 아이템 1 -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
-                        <img src="https://placehold.co/600x400/334155/ffffff?text=NFT+Collection" alt="NFT Collection 프로젝트" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2" data-lang-key="case1Title">Convicted Squirrels NFT collection</h3>
-                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case1Desc">A generative NFT collection with unique traits and community features.</p>
-                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore1">SEE MORE</a>
-                        </div>
-                    </div>
-                    <!-- 케이스 아이템 2 -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
-                        <img src="https://placehold.co/600x400/047857/ffffff?text=Crypto+Wallet" alt="Crypto Wallet 프로젝트" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2" data-lang-key="case2Title">Non-custodial crypto wallet</h3>
-                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case2Desc">A secure, user-friendly mobile wallet for managing various crypto assets.</p>
-                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore2">SEE MORE</a>
-                        </div>
-                    </div>
-                    <!-- 케이스 아이템 3 -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
-                        <img src="https://placehold.co/600x400/7c3aed/ffffff?text=DeFi+Staking" alt="DeFi Staking Platform" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2" data-lang-key="case3Title">DeFi Staking Platform</h3>
-                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case3Desc">A decentralized platform for users to stake their crypto assets and earn rewards with high APY.</p>
-                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore3">SEE MORE</a>
-                        </div>
-                    </div>
-                    <!-- 케이스 아이템 4 -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
-                        <img src="https://placehold.co/600x400/c2410c/ffffff?text=Supply+Chain" alt="Supply Chain Solution" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2" data-lang-key="case4Title">Blockchain-based Supply Chain</h3>
-                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case4Desc">A solution to track goods from origin to destination with immutable transparency.</p>
-                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore4">SEE MORE</a>
-                        </div>
-                    </div>
-                    <!-- 케이스 아이템 5 -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
-                        <img src="https://placehold.co/600x400/be185d/ffffff?text=Real+Estate" alt="Real Estate Tokenization" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2" data-lang-key="case5Title">Real Estate Tokenization</h3>
-                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case5Desc">A platform to tokenize real estate assets for fractional ownership and investment.</p>
-                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore5">SEE MORE</a>
-                        </div>
-                    </div>
-                    <!-- 케이스 아이템 6 -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
-                        <img src="https://placehold.co/600x400/1d4ed8/ffffff?text=DAO+Platform" alt="DAO Platform" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2" data-lang-key="case6Title">DAO Governance Platform</h3>
-                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case6Desc">A decentralized autonomous organization platform for community-driven project governance.</p>
-                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore6">SEE MORE</a>
-                        </div>
-                    </div>
-                     <!-- 케이스 아이템 7 -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
-                        <img src="https://placehold.co/600x400/0f766e/ffffff?text=Crypto+Gaming" alt="Crypto Gaming Marketplace" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2" data-lang-key="case7Title">Crypto Gaming Marketplace</h3>
-                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case7Desc">An in-game asset marketplace using NFTs for true ownership and trading.</p>
-                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore7">SEE MORE</a>
-                        </div>
-                    </div>
-                     <!-- 케이스 아이템 8 -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
-                        <img src="https://placehold.co/600x400/9a3412/ffffff?text=Voting+System" alt="Secure Voting System" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2" data-lang-key="case8Title">Secure Voting System</h3>
-                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case8Desc">A blockchain-based voting system to ensure integrity and anonymity in elections.</p>
-                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore8">SEE MORE</a>
-                        </div>
-                    </div>
-                     <!-- 케이스 아이템 9 -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
-                        <img src="https://placehold.co/600x400/166534/ffffff?text=Carbon+Credit" alt="Carbon Credit Marketplace" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2" data-lang-key="case9Title">Carbon Credit Marketplace</h3>
-                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case9Desc">A transparent platform for trading tokenized carbon credits to promote green initiatives.</p>
-                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore9">SEE MORE</a>
-                        </div>
-                    </div>
-                     <!-- 케이스 아이템 10 -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
-                        <img src="https://placehold.co/600x400/312e81/ffffff?text=Digital+ID" alt="Digital Identity Solution" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2" data-lang-key="case10Title">Digital Identity Solution</h3>
-                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case10Desc">A self-sovereign identity platform using blockchain for secure and private data control.</p>
-                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore10">SEE MORE</a>
-                        </div>
-                    </div>
-                    <!-- 케이스 아이템 11 -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
-                        <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=Music+Streaming" alt="Decentralized Music Streaming" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2" data-lang-key="case11Title">Decentralized Music Streaming</h3>
-                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case11Desc">A platform that allows artists to publish their music directly and get fair royalties using smart contracts.</p>
-                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore11">SEE MORE</a>
-                        </div>
-                    </div>
-                    <!-- 케이스 아이템 12 -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal">
-                        <img src="https://placehold.co/600x400/ec4899/ffffff?text=Healthcare+Data" alt="Healthcare Data Management" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2" data-lang-key="case12Title">Healthcare Data Management</h3>
-                            <p class="text-gray-600 mb-4 text-sm" data-lang-key="case12Desc">A secure system for patients to control and share their medical records with providers using blockchain.</p>
-                            <a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore12">SEE MORE</a>
-                        </div>
-                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal"><img src="https://placehold.co/600x400/334155/ffffff?text=NFT+Collection" alt="NFT Collection 프로젝트" class="w-full h-56 object-cover"><div class="p-6"><h3 class="text-xl font-bold mb-2" data-lang-key="case1Title">Convicted Squirrels NFT collection</h3><p class="text-gray-600 mb-4 text-sm" data-lang-key="case1Desc">A generative NFT collection with unique traits and community features.</p><a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore1">SEE MORE</a></div></div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal"><img src="https://placehold.co/600x400/047857/ffffff?text=Crypto+Wallet" alt="Crypto Wallet 프로젝트" class="w-full h-56 object-cover"><div class="p-6"><h3 class="text-xl font-bold mb-2" data-lang-key="case2Title">Non-custodial crypto wallet</h3><p class="text-gray-600 mb-4 text-sm" data-lang-key="case2Desc">A secure, user-friendly mobile wallet for managing various crypto assets.</p><a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore2">SEE MORE</a></div></div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal"><img src="https://placehold.co/600x400/7c3aed/ffffff?text=DeFi+Staking" alt="DeFi Staking Platform" class="w-full h-56 object-cover"><div class="p-6"><h3 class="text-xl font-bold mb-2" data-lang-key="case3Title">DeFi Staking Platform</h3><p class="text-gray-600 mb-4 text-sm" data-lang-key="case3Desc">A decentralized platform for users to stake their crypto assets and earn rewards with high APY.</p><a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore3">SEE MORE</a></div></div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal"><img src="https://placehold.co/600x400/c2410c/ffffff?text=Supply+Chain" alt="Supply Chain Solution" class="w-full h-56 object-cover"><div class="p-6"><h3 class="text-xl font-bold mb-2" data-lang-key="case4Title">Blockchain-based Supply Chain</h3><p class="text-gray-600 mb-4 text-sm" data-lang-key="case4Desc">A solution to track goods from origin to destination with immutable transparency.</p><a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore4">SEE MORE</a></div></div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal"><img src="https://placehold.co/600x400/be185d/ffffff?text=Real+Estate" alt="Real Estate Tokenization" class="w-full h-56 object-cover"><div class="p-6"><h3 class="text-xl font-bold mb-2" data-lang-key="case5Title">Real Estate Tokenization</h3><p class="text-gray-600 mb-4 text-sm" data-lang-key="case5Desc">A platform to tokenize real estate assets for fractional ownership and investment.</p><a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore5">SEE MORE</a></div></div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal"><img src="https://placehold.co/600x400/1d4ed8/ffffff?text=DAO+Platform" alt="DAO Platform" class="w-full h-56 object-cover"><div class="p-6"><h3 class="text-xl font-bold mb-2" data-lang-key="case6Title">DAO Governance Platform</h3><p class="text-gray-600 mb-4 text-sm" data-lang-key="case6Desc">A decentralized autonomous organization platform for community-driven project governance.</p><a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore6">SEE MORE</a></div></div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal"><img src="https://placehold.co/600x400/0f766e/ffffff?text=Crypto+Gaming" alt="Crypto Gaming Marketplace" class="w-full h-56 object-cover"><div class="p-6"><h3 class="text-xl font-bold mb-2" data-lang-key="case7Title">Crypto Gaming Marketplace</h3><p class="text-gray-600 mb-4 text-sm" data-lang-key="case7Desc">An in-game asset marketplace using NFTs for true ownership and trading.</p><a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore7">SEE MORE</a></div></div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal"><img src="https://placehold.co/600x400/9a3412/ffffff?text=Voting+System" alt="Secure Voting System" class="w-full h-56 object-cover"><div class="p-6"><h3 class="text-xl font-bold mb-2" data-lang-key="case8Title">Secure Voting System</h3><p class="text-gray-600 mb-4 text-sm" data-lang-key="case8Desc">A blockchain-based voting system to ensure integrity and anonymity in elections.</p><a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore8">SEE MORE</a></div></div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal"><img src="https://placehold.co/600x400/166534/ffffff?text=Carbon+Credit" alt="Carbon Credit Marketplace" class="w-full h-56 object-cover"><div class="p-6"><h3 class="text-xl font-bold mb-2" data-lang-key="case9Title">Carbon Credit Marketplace</h3><p class="text-gray-600 mb-4 text-sm" data-lang-key="case9Desc">A transparent platform for trading tokenized carbon credits to promote green initiatives.</p><a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore9">SEE MORE</a></div></div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal"><img src="https://placehold.co/600x400/312e81/ffffff?text=Digital+ID" alt="Digital Identity Solution" class="w-full h-56 object-cover"><div class="p-6"><h3 class="text-xl font-bold mb-2" data-lang-key="case10Title">Digital Identity Solution</h3><p class="text-gray-600 mb-4 text-sm" data-lang-key="case10Desc">A self-sovereign identity platform using blockchain for secure and private data control.</p><a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore10">SEE MORE</a></div></div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal"><img src="https://placehold.co/600x400/8b5cf6/ffffff?text=Music+Streaming" alt="Decentralized Music Streaming" class="w-full h-56 object-cover"><div class="p-6"><h3 class="text-xl font-bold mb-2" data-lang-key="case11Title">Decentralized Music Streaming</h3><p class="text-gray-600 mb-4 text-sm" data-lang-key="case11Desc">A platform that allows artists to publish their music directly and get fair royalties using smart contracts.</p><a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore11">SEE MORE</a></div></div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 reveal"><img src="https://placehold.co/600x400/ec4899/ffffff?text=Healthcare+Data" alt="Healthcare Data Management" class="w-full h-56 object-cover"><div class="p-6"><h3 class="text-xl font-bold mb-2" data-lang-key="case12Title">Healthcare Data Management</h3><p class="text-gray-600 mb-4 text-sm" data-lang-key="case12Desc">A secure system for patients to control and share their medical records with providers using blockchain.</p><a href="#" class="font-bold text-ttl-red hover:underline" data-lang-key="seeMore12">SEE MORE</a></div></div>
                 </div>
             </div>
         </section>
@@ -304,7 +165,7 @@
                         <p class="text-gray-600" data-lang-key="missionDesc">We believe that novel high-encrypted technologies can be used on the slow commercial market.</p>
                     </div>
                     <div class="lg:w-1/2 flex justify-center reveal">
-                        <img src="https://placehold.co/500x500/cccccc/333?text=Team+Photo" alt="회사 팀 사진" class="rounded-full w-80 h-80 lg:w-96 lg:h-96 object-cover shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="TTL 팀 사진" class="rounded-full w-80 h-80 lg:w-96 lg:h-96 object-cover shadow-2xl">
                     </div>
                  </div>
              </div>
@@ -318,10 +179,11 @@
                     <p class="mt-4 text-lg text-gray-300" data-lang-key="contactSubtitle">Have questions? We're here to help.</p>
                 </div>
                 <div class="max-w-xl mx-auto mt-12 reveal">
-                    <form action="#" method="POST" class="space-y-6">
-                        <input type="text" name="name" placeholder="Name" class="w-full p-4 rounded-md bg-gray-700 border-gray-600 focus:ring-ttl-red focus:border-ttl-red text-white" data-lang-key-placeholder="formName">
-                        <input type="email" name="email" placeholder="Email" class="w-full p-4 rounded-md bg-gray-700 border-gray-600 focus:ring-ttl-red focus:border-ttl-red text-white" data-lang-key-placeholder="formEmail">
-                        <textarea name="message" rows="4" placeholder="Message" class="w-full p-4 rounded-md bg-gray-700 border-gray-600 focus:ring-ttl-red focus:border-ttl-red text-white" data-lang-key-placeholder="formMessage"></textarea>
+                    <div id="form-status" class="mb-4 text-center font-bold p-3 rounded-md opacity-0"></div>
+                    <form action="contact_form.php" method="POST" class="space-y-6">
+                        <input type="text" name="name" placeholder="Name" required class="w-full p-4 rounded-md bg-gray-700 border-gray-600 focus:ring-ttl-red focus:border-ttl-red text-white" data-lang-key-placeholder="formName">
+                        <input type="email" name="email" placeholder="Email" required class="w-full p-4 rounded-md bg-gray-700 border-gray-600 focus:ring-ttl-red focus:border-ttl-red text-white" data-lang-key-placeholder="formEmail">
+                        <textarea name="message" rows="4" placeholder="Message" required class="w-full p-4 rounded-md bg-gray-700 border-gray-600 focus:ring-ttl-red focus:border-ttl-red text-white" data-lang-key-placeholder="formMessage"></textarea>
                         <button type="submit" class="w-full bg-ttl-red text-white font-bold py-4 px-8 rounded-lg hover:bg-ttl-red-dark transition-colors" data-lang-key="formSubmit">SUBMIT</button>
                     </form>
                 </div>
@@ -332,14 +194,13 @@
     <!-- 푸터 -->
     <footer class="bg-gray-900 text-gray-400">
         <div class="container mx-auto px-6 py-8 text-center">
-            <p>&copy; <span id="year">2022</span> TTL | That's The Life. All Rights Reserved.</p>
+            <p>&copy; <span id="year">2024</span> TTL | That's The Life. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            // 다국어 데이터
             const languageData = {
                 en: {
                     navServices: "Services", navMethodology: "Methodology", navCases: "Cases", navAbout: "About Us", navContact: "Contact", getInTouch: "GET IN TOUCH",
@@ -372,7 +233,9 @@
                     visionTitle: "Our Vision", visionDesc: "Our fundamental goal is to bring the best user experience to our clients through innovation.",
                     missionTitle: "Our Mission", missionDesc: "We believe that novel high-encrypted technologies can be used on the slow commercial market.",
                     contactTitle: "Reach out today", contactSubtitle: "Have questions? We're here to help.",
-                    formName: "Name", formEmail: "Email", formMessage: "Message", formSubmit: "SUBMIT"
+                    formName: "Name", formEmail: "Email", formMessage: "Message", formSubmit: "SUBMIT",
+                    formSuccess: "Your message has been sent successfully!",
+                    formError: "Something went wrong. Please try again."
                 },
                 ko: {
                     navServices: "서비스", navMethodology: "방법론", navCases: "사례", navAbout: "회사 소개", navContact: "연락처", getInTouch: "연락하기",
@@ -405,7 +268,9 @@
                     visionTitle: "우리의 비전", visionDesc: "우리의 근본적인 목표는 혁신을 통해 고객에게 최고의 사용자 경험을 제공하는 것입니다.",
                     missionTitle: "우리의 미션", missionDesc: "우리는 새로운 고암호화 기술이 느린 상업 시장에서 사용될 수 있다고 믿습니다.",
                     contactTitle: "지금 바로 연락하세요", contactSubtitle: "질문이 있으신가요? 저희가 도와드리겠습니다.",
-                    formName: "이름", formEmail: "이메일", formMessage: "메시지", formSubmit: "제출"
+                    formName: "이름", formEmail: "이메일", formMessage: "메시지", formSubmit: "제출",
+                    formSuccess: "메시지가 성공적으로 전송되었습니다!",
+                    formError: "오류가 발생했습니다. 다시 시도해주세요."
                 },
                 zh: {
                     navServices: "服务", navMethodology: "方法论", navCases: "案例", navAbout: "关于我们", navContact: "联系我们", getInTouch: "联系我们",
@@ -438,46 +303,58 @@
                     visionTitle: "我们的愿景", visionDesc: "我们的根本目标是通过创新为客户带来最佳的用户体验。",
                     missionTitle: "我们的使命", missionDesc: "我们相信，新颖的高度加密技术可以用于缓慢的商业市场。",
                     contactTitle: "今天就联系我们", contactSubtitle: "有问题吗？我们在这里提供帮助。",
-                    formName: "姓名", formEmail: "电子邮件", formMessage: "信息", formSubmit: "提交"
+                    formName: "姓名", formEmail: "电子邮件", formMessage: "信息", formSubmit: "提交",
+                    formSuccess: "您的消息已成功发送！",
+                    formError: "出错了。请再试一次。"
                 }
             };
-
+            
+            let currentLang = 'en';
             const langButtons = document.querySelectorAll('.lang-btn');
             
             function changeLanguage(lang) {
-                // 모든 텍스트 요소 업데이트
+                currentLang = lang;
                 document.querySelectorAll('[data-lang-key]').forEach(el => {
                     const key = el.getAttribute('data-lang-key');
                     if (languageData[lang] && languageData[lang][key]) {
                         el.textContent = languageData[lang][key];
                     }
                 });
-
-                // 모든 placeholder 요소 업데이트
                  document.querySelectorAll('[data-lang-key-placeholder]').forEach(el => {
                     const key = el.getAttribute('data-lang-key-placeholder');
                     if (languageData[lang] && languageData[lang][key]) {
                         el.placeholder = languageData[lang][key];
                     }
                 });
-
-                // 활성 버튼 스타일 업데이트
                 langButtons.forEach(btn => {
                     btn.classList.toggle('active', btn.dataset.lang === lang);
                 });
+                updateFormStatusMessage();
+            }
+
+            function updateFormStatusMessage() {
+                const statusDiv = document.getElementById('form-status');
+                const urlParams = new URLSearchParams(window.location.search);
+                const status = urlParams.get('status');
+
+                if (status) {
+                    statusDiv.style.opacity = '1';
+                    if (status === 'success') {
+                        statusDiv.className = 'mb-4 text-center font-bold p-3 rounded-md bg-green-100 text-green-700';
+                        statusDiv.textContent = languageData[currentLang].formSuccess;
+                    } else if (status === 'error') {
+                        statusDiv.className = 'mb-4 text-center font-bold p-3 rounded-md bg-red-100 text-red-700';
+                        statusDiv.textContent = languageData[currentLang].formError;
+                    }
+                }
             }
 
             langButtons.forEach(button => {
                 button.addEventListener('click', (e) => {
-                    const selectedLang = e.target.dataset.lang;
-                    changeLanguage(selectedLang);
-});
+                    changeLanguage(e.target.dataset.lang);
+                });
             });
 
-            // 초기 언어 설정 (영어)
-            changeLanguage('en');
-
-            // 모바일 메뉴 토글
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenuButton.addEventListener('click', () => {
@@ -489,7 +366,6 @@
                 });
             });
 
-            // 스크롤 애니메이션
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -502,6 +378,10 @@
             document.querySelectorAll('.reveal').forEach(el => {
                 observer.observe(el);
             });
+            
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            changeLanguage('en');
         });
     </script>
 </body>
